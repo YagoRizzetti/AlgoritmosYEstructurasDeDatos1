@@ -27,6 +27,25 @@ def listado(vec,x):
         if vec[i].promedio >= x:
             write(vec(i))
 
+def cambiarPromedio(vec, x):
+        ban = False
+        for i in range(len(vec)):
+            if vec[i].promedio == x:
+				vec[i].promedio = 7
+				write(vec[i])
+		if ban == False:
+			print("No hay alumnos con ese nombre")
+
+def buscarPromedio(vec, x):
+	band = False
+	for i in range(len(vec)):
+		if vec[i].promedio == x:
+			write(vec[i])
+			band = True
+			break
+	if band == False:
+		print("No hay alumnos con ese promedio")
+
 def main():
     n = int(input("Ingrese la cantidad de Estudiantes: "))
     v = n * [None]
@@ -36,5 +55,7 @@ def main():
     ordenarPorLegajo(v)
     x = int(input("Ingrese el promedio necesario para hacer el curso: "))
     listado(v,x)
+	cambiarPromedio(v,x)
+	buscarPromedio(v,x)
 
 main()
