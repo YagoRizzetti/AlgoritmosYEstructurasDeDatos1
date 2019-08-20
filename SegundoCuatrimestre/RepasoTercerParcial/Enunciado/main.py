@@ -14,14 +14,14 @@ import random
 from RegistroPaquete import *
 
 def validarMayorQue(mensaje,n):
-    num = int(input(mensaje, str(n),":"))
+    num = int(input(mensaje + str(n) +":"))
     while num <= n:
         print("ERROR!")
-        num = int(input(mensaje, str(n),":"))
+        num = int(input(mensaje + str(n) +":"))
     return num
 
 def validarEntre(i,s):
-    num = int(input("ingrese valor >", str(i), "<", str(s), ":"))
+    num = int(input("ingrese valor >" + str(i) + "<" + str(s) + ":"))
     while num < i or num > s:
         print("ERROR!")
         num = int(input("Ingrese otro Valor: "))
@@ -36,25 +36,56 @@ def cargarVector(v):
         imp = float(input("Ingrese el Importe: "))
         v[i] = Paquete(id,des,tip,dias,imp)
 
+def ordernarPorDescripcion(v):
+    #SELECCION DIRECTA
+    n = len(v)
+    for i in range(n-1):
+        for j in range(i+1,n):
+            if v[i].descripción > v[j].descripcion:
+                v[i], v[j] = v[j], v[i]
+
+def mostrar(v):
+    for i in range(len(v)):
+        write(v[i])
+
+def buscarPaquete(v, x, t):
+    b = False
+    for i in range(len(v))
+        if i.id == x and i.importe >= t:
+            write(v[i])
+            b = True
+            break
+    if b == False:
+        print("No se encontro el paquete con los datos que busca.")
+
 def main():
+    ban = False
     n = int(input("Ingrrese la cantidad de paquetes: ")) 
     v = [None] * n
     opciones = (1,2,3,4,5)
     o = 0
     while o not in opciones:
-        print("1-Cargar Vector")
-        print("2- ")
+        print("1-Cargar Paquete")
+        print("2-Ordenar Paquete")
         print("3- ")
-        print("4- ")
+        print("4-Buscar Paquete")
         print("5-Salir")
         o = int(input("Elija una opcion del menu: "))
         if o == 1:
+            ban = True
+            cargarVector(v)
         elif o == 2:
-            pass
+            if ban:
+                ordernarPorDescripcion(v)
+                mostrar(v)
+            else:
+                print("Vector sin datos!")
         elif o == 3:
             pass
         elif o == 4:
-            pass
+            x = int(input("Ingrese el numero de identificacion del vector que quiera buscar: "))
+            t = int(input("Ingrese el importe minimo que deba tener el paquete: "))
+            buscarPaquete(v, x, t)
         elif o == 5:
             print("ADIOS!.")
             break
