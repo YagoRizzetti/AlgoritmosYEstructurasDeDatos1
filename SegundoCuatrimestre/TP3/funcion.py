@@ -42,3 +42,19 @@ def articulosUsados(v):
     for r in range(registros):
         for a in range(atributos):
             print([r][a])
+
+def distribucionGeografica(v):
+    pass
+
+def totalProvincial(v):
+    pass
+
+def promedioUsados(v):
+    pass
+
+def compraIdeal(v):
+    pass
+
+def comprar(v):
+    pass
+
