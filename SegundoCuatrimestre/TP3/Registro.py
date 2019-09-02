@@ -7,7 +7,6 @@ class Articulo:
         self.cantidad = cantidad
         self.puntuacion = puntuacion
 
-
 def write(articulo):
     print("Codigo de Identificacion: ", articulo.identificador, "-", end=" ")
     print("Precio: ", articulo.precio, "-", end=" ")
