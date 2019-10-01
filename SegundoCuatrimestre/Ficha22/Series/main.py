@@ -1,5 +1,8 @@
 import random
+import pickle
+import os.path
 from Registros import *
+
 
 
 def crearArchivo():
@@ -13,4 +16,5 @@ def crearArchivo():
         idioma = random.ranrange(5)
         temporadas = random.ranrange(30)
         duracion = random.ranrange(300)
-        
+        serie = Serie(titulos[i],genero,idioma,temporadas,duracion)
+        pickle.dumb(serie,)    
