@@ -36,21 +36,14 @@ def articulosNuevos(v):
     orderPorPrecio(an)
 
 #Punto 2-------------------------------------------------------------------------------------
-def agruparPorPuntuacion(v):
-    app = [0] * 5
-    for i in range(len(v)):
-        app[v[i].puntuacion - 1] += 1 
-
-    for i in range(len(app)):
-        if app[i] != 0:
-            print("La Cantidad de articulos usados con una puntuacion de " + str(i+1) + " es de: " + str(app[i]))
-
 def articulosUsados(v):
-    an = []
+    an = [0,0,0,0,0]
     for i in range(len(v)):
         if v[i].estado == "usado":
-            an.append(v[i])
-    a = agruparPorPuntuacion(an)
+            an[v[i].puntuacion - 1] += 1
+    for i in range(len(an)):
+        if an[i] != 0:
+            print("La Cantidad de articulos usados con una puntuacion de " + str(i+1) + " es de: " + str(an[i]))
     
 #Punto 3-------------------------------------------------------------------------------------
 def puntuacion(num):
@@ -110,14 +103,14 @@ def totalProvincial(v):
 
 #Punto 5-------------------------------------------------------------------------------------
 def usadosPrcioMayorPromedio(v,Promedio):
-    apmpu = []
+    b = False
     for i in range(len(v)):
         if v[i].precio >= Promedio and v[i].estado == "usado":
-            apmpu.append(v[i])
-    if len(apmpu) != 0:
-        print("Los articulos usados que superan el precio pormedio anterior son:")
-        mostrarV(apmpu)
-    else:
+            if b == False:
+                print("Los articulos usados que superan el precio pormedio anterior son:")
+                b = True
+            write(v[i])
+    if b == False:
         print("No existen articulos usados que superen El precio promedio de todos los articulos registrados")
 
 def promedioUsados(v):
@@ -138,38 +131,41 @@ def promedioUsados(v):
 def compraIdeal(v):
     mc = (1,2)
     mpan = []
-    l = 0
     b = False
     for i in range(len(v)):
         if v[i].estado == "nuevo" and v[i].puntuacion not in mc:
             mpan = v[i]
-            l = i
             b = True
-            break
-    if b:
-        for i in range(l, len(v)):
-            if v[i].estado == "nuevo" and v[i].precio < mpan.precio and v[i].puntuacion not in mc:
+            if v[i].precio < mpan.precio:
                 mpan = v[i]
-                lug = i
+    if b:
         write(mpan)
     else:
         print("No existe un Articulo Nuevo que tenga una buena puntuacion")
 
 #Punto 7-------------------------------------------------------------------------------------
 def comprar(v):
-    i = int(input("Ingrese el numero de identidicacion del producto que desea comprar: "))
+    i = int(input("Ingrese el numero de identificacion del producto que desea comprar: "))
     e = False
+    n = len(v)-1
+    iz , d = 0 , n
     p = []
-    for a in range(len(v)):
-        if v[a].identificador == i:
-            p.append(v[a])
+    while iz <= d:
+        c = (iz + d)//2
+        if i == v[c].identificador :
+            p.append(v[c])
             e = True
             break
+        elif i < v[c].identificador:
+            d = c-1
+        else:
+            iz = c+1
+
     if e:
-        c = int(input("Ingrese la cantidad que desea comprar: "))
-        while p[0].cantidad < c:
-            c = int(input("Error! , la cantidad de productos disponibles es menor a: " + str(c) +" Porfavor ingrese una cantidad menor a " + str(p[0].cantidad)+" :"))
-        p[0].cantidad -= c
+        cant = int(input("Ingrese la cantidad que desea comprar: "))
+        while p[0].cantidad < cant:
+            cant = int(input("Error! , la cantidad de productos disponibles es menor a: " + str(cant) +" Porfavor ingrese una cantidad menor a " + str(p[0].cantidad)+" :"))
+        p[0].cantidad -= cant
         mostrarV(p)    
 
     else:

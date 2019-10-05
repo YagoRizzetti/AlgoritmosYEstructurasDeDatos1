@@ -31,6 +31,7 @@ def main():
     generarArticulos(v)
     mostrarV(v)
     o = 0
+    ban = False
     while o != 8:
         print("\033[1;35m" + "\033[4;35m" + "_"*50 + "\033[0;35m" + "\033[1;35m")
         print("                 MENU PRINCIPAL")
@@ -49,7 +50,9 @@ def main():
         elif o == 2:
             articulosUsados(v)
         elif o == 3:
-            d = distribucionGeografica(v)
+            if ban == False:
+                d = distribucionGeografica(v)
+                ban = True
             mostrarMatriz(d)
         elif o == 4:
             totalProvincial(v)                
