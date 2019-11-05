@@ -17,6 +17,15 @@ class Paciente:
 # a razón de un registro por paciente, el cual debe mantenerse en todo momento
 # ordenado de menor a mayor de acuerdo al valor del número de historia clínica de los pacientes.
 
+def validarMayorQue(limite,mensaje):
+
+    valor = int(input(mensaje))
+    while valor<=limite:
+        print('ERROR...')
+        valor = int(input(mensaje))
+    return valor
+
+
 def cargarVectorOrdenado(n):
 
     p=[]
@@ -32,13 +41,6 @@ def cargarVectorOrdenado(n):
 
     return p
 
-def validarMayorQue(limite,mensaje):
-
-    valor = int(input(mensaje))
-    while valor<=limite:
-        print('ERROR...')
-        valor = int(input(mensaje))
-    return valor
 
 # intervalo con limite inferior y superior incluidos
 def validarIntervalo(inferior,superior,mensaje):
