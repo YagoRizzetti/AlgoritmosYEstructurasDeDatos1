@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/[F13] Aplicaciones Recursivas.iml" filepath="$PROJECT_DIR$/.idea/[F13] Aplicaciones Recursivas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/[F27] Ackermann.iml" filepath="$PROJECT_DIR$/.idea/[F27] Ackermann.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../[F27] Divide y Venceras/.idea/[F27] Divide y Venceras.iml" filepath="$PROJECT_DIR$/../[F27] Divide y Venceras/.idea/[F27] Divide y Venceras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../[F27] Piramide/.idea/[F27] Piramide.iml" filepath="$PROJECT_DIR$/../[F27] Piramide/.idea/[F27] Piramide.iml" />
+    </modules>
+  </component>
+</project>
